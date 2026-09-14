@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BugGarden</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+<div class="brand">
+<div class="logo">🐛</div>
+<div>
+<h1>BugGarden</h1>
+<span>Grow your debugging skills</span>
+</div>
+</div>
+<div class="header-actions">
+<div class="stat-pill">⚡ <span id="xp">0</span> XP</div>
+<div class="stat-pill">🔥 <span id="streak">0</span></div>
+<button id="themeBtn">🌙</button>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div>
+<p class="eyebrow">DEBUGGING GARDEN</p>
+<h2>Find the bug.<br><span>Grow your skills.</span></h2>
+<p class="hero-text">Fix real JavaScript bugs, earn XP, unlock new areas and become a debugging master.</p>
+<button class="primary" id="startBtn">Start debugging →</button>
+</div>
+<div class="garden-art">
+<div class="plant">🌱</div>
+<div class="bug bug1">🐛</div>
+<div class="bug bug2">🪲</div>
+<div class="bug bug3">🐞</div>
+</div>
+</section>
+
+<section class="dashboard">
+<div class="panel">
+<div class="panel-title">
+<div>
+<span class="section-label">CURRENT CHALLENGE</span>
+<h3 id="challengeTitle">Loading...</h3>
+</div>
+<span class="difficulty" id="difficulty">Easy</span>
+</div>
+
+<div class="challenge-meta">
+<span id="category">Basics</span>
+<span>•</span>
+<span id="challengeNumber">Challenge 1</span>
+</div>
+
+<div class="editor">
+<div class="editor-top">
+<span>JavaScript</span>
+<button id="resetBtn">Reset</button>
+</div>
+<textarea id="code" spellcheck="false"></textarea>
+</div>
+
+<div class="controls">
+<button class="run-btn" id="runBtn">▶ Run Code</button>
+<button class="hint-btn" id="hintBtn">💡 Hint <span id="hintCount">0/3</span></button>
+</div>
+
+<div id="hintBox" class="hint-box hidden"></div>
+<div id="result" class="result hidden"></div>
+</div>
+
+<div class="side">
+<div class="panel progress-panel">
+<div class="panel-title">
+<div>
+<span class="section-label">YOUR PROGRESS</span>
+<h3>Skill Tree</h3>
+</div>
+<span class="level-badge">LVL <span id="level">1</span></span>
+</div>
+
+<div class="tree">
+<div class="tree-item active">
+<div class="tree-icon">🌱</div>
+<div>
+<strong>Basics</strong>
+<span>Arrays · Variables · Functions</span>
+</div>
+<div class="tree-score" id="basicsScore">0%</div>
+</div>
+
+<div class="tree-line"></div>
+
+<div class="tree-item">
+<div class="tree-icon">🌿</div>
+<div>
+<strong>DOM</strong>
+<span>Events · Elements · Selectors</span>
+</div>
+<div class="tree-score" id="domScore">0%</div>
+</div>
+
+<div class="tree-line"></div>
+
+<div class="tree-item">
+<div class="tree-icon">⚡</div>
+<div>
+<strong>Async</strong>
+<span>Promises · async/await</span>
+</div>
+<div class="tree-score" id="asyncScore">0%</div>
+</div>
+
+<div class="tree-line"></div>
+
+<div class="tree-item">
+<div class="tree-icon">🌐</div>
+<div>
+<strong>APIs</strong>
+<span>Fetch · JSON · HTTP</span>
+</div>
+<div class="tree-score" id="apisScore">0%</div>
+</div>
+
+<div class="tree-line"></div>
+
+<div class="tree-item">
+<div class="tree-icon">🚀</div>
+<div>
+<strong>Advanced JS</strong>
+<span>Closures · Scope · Logic</span>
+</div>
+<div class="tree-score" id="advancedScore">0%</div>
+</div>
+</div>
+</div>
+
+<div class="panel stats-panel">
+<div class="panel-title">
+<div>
+<span class="section-label">STATISTICS</span>
+<h3>Your Debug Profile</h3>
+</div>
+</div>
+
+<div class="stat-row">
+<span>Challenges solved</span>
+<strong id="solved">0</strong>
+</div>
+<div class="stat-row">
+<span>Best streak</span>
+<strong id="bestStreak">0 🔥</strong>
+</div>
+<div class="stat-row">
+<span>Hints used</span>
+<strong id="hintsUsed">0</strong>
+</div>
+<div class="stat-row">
+<span>Success rate</span>
+<strong id="successRate">0%</strong>
+</div>
+</div>
+</div>
+</section>
+
+<section class="bottom-grid">
+<div class="panel">
+<div class="panel-title">
+<div>
+<span class="section-label">ACHIEVEMENTS</span>
+<h3>Garden Badges</h3>
+</div>
+</div>
+<div class="badges">
+<div class="badge locked" id="badge1"><span>🐣</span><strong>First Fix</strong><small>Solve your first bug</small></div>
+<div class="badge locked" id="badge2"><span>🔥</span><strong>On Fire</strong><small>Reach a 5 streak</small></div>
+<div class="badge locked" id="badge3"><span>🧠</span><strong>Debugger</strong><small>Solve 10 bugs</small></div>
+<div class="badge locked" id="badge4"><span>🌳</span><strong>Gardener</strong><small>Earn 500 XP</small></div>
+</div>
+</div>
+
+<div class="panel share-panel">
+<span class="section-label">SHARE</span>
+<h3>Challenge a friend</h3>
+<p>Send someone a challenge from your garden.</p>
+<button class="secondary" id="shareBtn">🔗 Copy Challenge Link</button>
+</div>
+</section>
+</main>
+
+<div id="toast"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
